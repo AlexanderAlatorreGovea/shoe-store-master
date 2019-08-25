@@ -113,8 +113,11 @@
       text-transform: uppercase;
       flex-direction: column;
       cursor: pointer;
+      .cart{
+        transition: color .4s ease-in-out;
+      }
       &:hover{
-        .ti-shopping-cart{
+        .cart{
           color: red;
         }
       }

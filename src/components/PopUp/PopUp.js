@@ -36,7 +36,7 @@ const PopUp = () => (
         </div>
         <div className="checkout">
             <div className="title">Checkout</div>
-            <span className="ti-shopping-cart" />
+            <i className="arrow down cart icon" ></i>
         </div>
     </section>
 );

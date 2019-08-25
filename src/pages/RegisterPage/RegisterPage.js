@@ -6,14 +6,14 @@ const RegisterPage = () => (
     <section class="content-area login_register-page">
         <div class="container">
             <div class="box-container">
-                <h2>Register</h2>
+                <h2 style={{ color: '#484c4f' }} >Register</h2>
                 <div class="login-grid register" />
                 <form action="" method="POST">
-                    <input style={{ borderRadius: '1.2rem' }} type="email" name="email" placeholder="Email"></input>
-                    <input style={{ borderRadius: '1.2rem' }} type="password" name="password" placeholder="Password"></input>
+                    <input style={{ boxShadow: '0 1px 6px 0 rgba(32, 33, 36, .28)', borderRadius: '1.2rem' }} type="email" name="email" placeholder="Email"></input>
+                    <input style={{ boxShadow: '0 1px 6px 0 rgba(32, 33, 36, .28)', borderRadius: '1.2rem' }} type="password" name="password" placeholder="Password"></input>
                 
         
-                    <button style={{ borderRadius: '6px' }} type="submit">Register</button>
+                    <button style={{ boxShadow: '0 1px 6px 0 rgba(32, 33, 36, .28)', borderRadius: '6px' }} type="submit">Register</button>
                 </form>
                 <div class="line"></div>
                 
