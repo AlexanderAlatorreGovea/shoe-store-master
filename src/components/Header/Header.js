@@ -1,17 +1,19 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 import './Header.scss';
 
 const Header = () => (
     <div>
         <header>
             <div class="logo">
-                <a href="/">freshgear</a>
+                <Link to="/">freshgear</Link>
             </div>
             <div class="menu">
-                <a href="/about">About</a>
-                <a href="/products/new-arrivals">New Arrival</a>
-                <a href="/products">All Products</a>
-            <a href="#" className="cart-link">Cart<span>4</span></a>
+                <Link to="about">About</Link>
+                <Link to="products">New Arrival</Link>
+                <Link to="new-arrivals">All Products</Link>
+            <Link to="#" className="cart-link">Cart<span>4</span></Link>
             </div>
         </header>
   </div>

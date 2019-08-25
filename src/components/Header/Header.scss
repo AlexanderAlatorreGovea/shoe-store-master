@@ -55,15 +55,3 @@ header{
       }
     }
   }
-
-.content-area{
-    background: #E3E8EC;
-    filter: blur(0);
-    transition: filter .4s ease-in-out;
-&.cart-popup-active{
-    filter: blur(20px);
-}
-&.home-page{
-
-    }
-}
