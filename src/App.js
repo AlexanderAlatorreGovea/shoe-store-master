@@ -7,10 +7,12 @@ import Products from './pages/Products/Products';
 import RegisterPage from './pages/RegisterPage/RegisterPage';
 import LoginPage from './pages/LoginPage/LoginPage';
 import ProductPage from './pages/ProductPage/ProductPage';
+import Checkout from './pages/Checkout/Checkout';
 import Header from './components/Header/Header';
 
-function App() {
-  return (
+class App extends React.Component {
+  render() {
+    return (
       <div className="App">
         <Header/>
         <Switch >
@@ -20,9 +22,11 @@ function App() {
           <Route  exact path="/login" component={ LoginPage }/>
           <Route  exact path="/register" component={ RegisterPage }/>
           <Route  exact path="/product" component={ ProductPage }/>
+          <Route  exact path="/checkout" component={ Checkout  }/>
         </Switch>
       </div>
-  );
+    );
+  }
 }
 
 export default App;

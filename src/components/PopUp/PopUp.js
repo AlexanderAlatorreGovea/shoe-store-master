@@ -1,13 +1,14 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import image from '../../assets/adidas-yeezy-boost-350-white.png';
 
 import './PopUp.scss';
 
-const PopUp = () => (
+const PopUp = ({ toggleCart }) => (
     <section
-    id="cart-popup"
-    className="active"
+        id="cart-popup"
+        className={`${toggleCart && 'active'}`}
     >
         <div className="cart-title">
             <div className="title">My Cart</div>
@@ -34,10 +35,10 @@ const PopUp = () => (
                 <div className="number"> $3,000</div>
             </div>
         </div>
-        <div className="checkout">
-            <div className="title">Checkout</div>
-            <i className="arrow down cart icon" ></i>
-        </div>
+            <div className="checkout">
+                <div className="title"><Link style={{ color: 'black', textDecoration: 'none' }} to="/checkout">Checkout</Link></div>
+                <i className="arrow down cart icon" ></i>
+            </div>
     </section>
 );
 

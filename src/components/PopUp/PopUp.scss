@@ -116,17 +116,18 @@
       .cart{
         transition: color .4s ease-in-out;
       }
-      &:hover{
-        .cart{
-          color: red;
-        }
-      }
       .title{
         margin-bottom: 1.2rem;
+        a{
+          transition: color .4s ease-in-out;
+          &:hover{
+            color: red !important;
+          }
+        }
       }
     }
   }
-  
+
   .box-container{
     background: white;
     padding: 80px 20px;
