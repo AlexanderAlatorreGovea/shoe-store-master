@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import './RegisterPage.scss';
 
@@ -18,7 +19,7 @@ const RegisterPage = () => (
                 <div class="line"></div>
                 
                 <div class="footer">
-                    already have an account? <a href="/login">Login</a>
+                    already have an account? <Link  to="login">Login</Link >
                 </div>
             </div>
         </div>

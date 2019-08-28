@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import './LoginPage.scss';
 
@@ -23,7 +24,7 @@ const LoginPage = () => (
 
             </div>
             <div class="footer">
-                Need an account? <a href="/register">Sign Up</a>
+                Need an account? <Link to="register">Sign Up</Link>
             </div>
             </div>
         </div>

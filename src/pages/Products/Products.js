@@ -4,7 +4,7 @@ import image from '../../assets/adidas-yeezy-boost-350-white.png';
 
 import './Products.scss';
 
-const Products  = (props) => {
+const Products  = () => {
     return (
         <div class="content-area products-all-page">
             <div class="filter-section">

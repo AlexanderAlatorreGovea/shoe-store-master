@@ -30,8 +30,9 @@ class Header extends Component {
                     </div>
                     <div class="menu">
                         <Link to="about">About</Link>
-                        <Link to="products">New Arrival</Link>
+                        <Link to="products">New Arrivals</Link>
                         <Link to="new-arrivals">All Products</Link>
+                        <Link to="login">Sign In</Link>
                         <Link onClick={this.toggleCart} className="cart-link">Cart<span>4</span></Link>
                     </div>
                 </header>
