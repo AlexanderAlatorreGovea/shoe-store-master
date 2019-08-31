@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route, Redirect } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 
 import LandingPage from './pages/LandingPage/LandingPage';
 import AboutPage from './pages/AboutPage/AboutPage';
@@ -7,6 +7,8 @@ import Products from './pages/Products/Products';
 import RegisterPage from './pages/RegisterPage/RegisterPage';
 import LoginPage from './pages/LoginPage/LoginPage';
 import ProductPage from './pages/ProductPage/ProductPage';
+import OrdersPage from './pages/OrdersPage/OrdersPage';
+import ChangePassword from './pages/ChangePassword/ChangePassword';
 import Checkout from './pages/Checkout/Checkout';
 import Header from './components/Header/Header';
 
@@ -23,6 +25,8 @@ class App extends React.Component {
           <Route  exact path="/register" component={ RegisterPage }/>
           <Route  exact path="/product" component={ ProductPage }/>
           <Route  exact path="/checkout" component={ Checkout  }/>
+          <Route  exact path="/orders" component={ OrdersPage }/>
+          <Route  exact path="/changepassword" component={ ChangePassword }/>
         </Switch>
       </div>
     );
