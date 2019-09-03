@@ -3,15 +3,15 @@ import React from 'react';
 import './OrdersPage.scss';
 
 const OrdersPage = () => (
-    <section class="content-area login_register-page">
-        <section class="content-area account-page">
-            <div class="container">
-                <div class="box-container">
+    <section className="content-area login_register-page">
+        <section className="content-area account-page">
+            <div className="container">
+                <div className="box-container">
                     <h1>Orders</h1>
                     <hr />
-                    <div class="checkout-grid">
-                    <div class="forms">
-                        <div class="order-list">
+                    <div className="checkout-grid">
+                    <div className="forms">
+                        <div className="order-list">
                         <table>
                             <thead>
                             <tr>
@@ -26,31 +26,31 @@ const OrdersPage = () => (
                                 <td>1231214343</td>
                                 <td>$3,200</td>
                                 <td>1/28/2019</td>
-                                <td><span class="tag shipped">Shipped</span></td>
+                                <td><span className="tag shipped">Shipped</span></td>
                             </tr>
                             <tr>
                                 <td>1231214343</td>
                                 <td>$3,200</td>
                                 <td>1/28/2019</td>
-                                <td><span class="tag shipped">Shipped</span></td>
+                                <td><span className="tag shipped">Shipped</span></td>
                             </tr>
                             <tr>
                                 <td>1231214343</td>
                                 <td>$3,200</td>
                                 <td>1/28/2019</td>
-                                <td><span class="tag shipped">Shipped</span></td>
+                                <td><span className="tag shipped">Shipped</span></td>
                             </tr>
                             <tr>
                                 <td>1231214343</td>
                                 <td>$3,200</td>
                                 <td>1/28/2019</td>
-                                <td><span class="tag canceled">Canceled</span></td>
+                                <td><span className="tag canceled">Canceled</span></td>
                             </tr>
                             </tbody>
                         </table>
                         </div>
                     </div>
-                    <div class="sub-menu">
+                    <div className="sub-menu">
                     </div>
                     </div>
                 </div>

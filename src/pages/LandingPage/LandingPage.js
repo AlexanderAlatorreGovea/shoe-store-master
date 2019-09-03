@@ -6,14 +6,14 @@ import image from '../../assets/adidas-yeezy-boost-350-white.png';
 
 const LandingPage = () => (
     <div>
-        <section class="content-area home-page">
-            <div class="top-section">
-                <div class="product">
-                <div class="circle">
+        <section className="content-area home-page">
+            <div className="top-section">
+                <div className="product">
+                <div className="circle">
                     <img src={image} />
                 </div>
                 </div>
-                <div class="titles">
+                <div className="titles">
                 <h3>Yeezy</h3>
                 <h1>Boost 350</h1>
                 </div>

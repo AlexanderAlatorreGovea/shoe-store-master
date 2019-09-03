@@ -25,10 +25,10 @@ class Header extends Component {
         return (
             <div>
                 <header>
-                    <div class="logo">
+                    <div className="logo">
                         <Link to="/">freshgear</Link>
                     </div>
-                    <div class="menu">
+                    <div className="menu">
                         <Link to="about">About</Link>
                         <Link to="products">New Arrivals</Link>
                         <Link to="new-arrivals">All Products</Link>
@@ -38,7 +38,7 @@ class Header extends Component {
                 </header>
                 <PopUp
                  toggleCart={toggleCart}
-                 />
+                />
             </div>
         );
     }

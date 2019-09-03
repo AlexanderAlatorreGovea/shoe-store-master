@@ -31,6 +31,27 @@
         }
       }
     }
+    .add-to-cart-btn {
+      font-family: Proxima Nova,Helvetica,Arial,sans-serif;
+      font-size: .75em;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: #898b8e;
+      line-height: 1.4;
+      cursor: pointer;
+      background: #131313;
+      border: 1px solid #131313;
+      color: #fff;
+      font-weight: 600;
+      height: 40px;
+      padding: 0 2em;
+      width: 100%;
+      height: 60px;
+      &:hover{
+        background: #a41d23;
+        //border-color: #a41d23;
+      }
+    }
     .product-detail{
       width: 100%;
       background: white;

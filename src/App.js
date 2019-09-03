@@ -23,7 +23,7 @@ class App extends React.Component {
           <Route  exact path="/products" component={ Products }/>
           <Route  exact path="/login" component={ LoginPage }/>
           <Route  exact path="/register" component={ RegisterPage }/>
-          <Route  exact path="/product" component={ ProductPage }/>
+          <Route  exact path="/product/:id" component={ ProductPage }/>
           <Route  exact path="/checkout" component={ Checkout  }/>
           <Route  exact path="/orders" component={ OrdersPage }/>
           <Route  exact path="/changepassword" component={ ChangePassword }/>
