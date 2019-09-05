@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
 
 import PopUp from '../PopUp/PopUp';
+import { selectCartItemsCount } from '../../redux/cart/cart-selectors';
 
 import './Header.scss';
 
@@ -22,6 +25,7 @@ class Header extends Component {
 
     render() {
         const { toggleCart } = this.state;
+        const { itemCount } = this.props;
         return (
             <div>
                 <header>
@@ -33,17 +37,23 @@ class Header extends Component {
                         <Link to="products">New Arrivals</Link>
                         <Link to="new-arrivals">All Products</Link>
                         <Link to="login">Sign In</Link>
-                        <Link onClick={this.toggleCart} className="cart-link">Cart<span>4</span></Link>
+                        <div onClick={this.toggleCart} className="cart-link">Cart<span>{itemCount}</span></div>
                     </div>
                 </header>
                 <PopUp
                  toggleCart={toggleCart}
+                 itemCount={itemCount}
                 />
             </div>
         );
     }
-}
+};
 
-export default Header;
+const mapStateToProps = createStructuredSelector({
+    itemCount: selectCartItemsCount
+});
+  
+
+export default connect(mapStateToProps)(Header);
 
 

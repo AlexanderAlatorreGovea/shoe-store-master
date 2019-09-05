@@ -24,7 +24,7 @@ header{
       font-size: 1rem;
       text-transform: uppercase;
       padding: 20px 0;
-      a{
+      a {
         color: #484c4f;
         padding-right: 15px;
         text-decoration: none;
@@ -32,29 +32,30 @@ header{
         &:hover{
           color: red;
         }
-        &.cart-link{
-          background: #484c4f;
+        }
+      .cart-link{
+        background: #484c4f;
+        color: white;
+        padding: 10px 20px;
+        display: inline-block;
+        position: relative;
+        border-radius: 20px;
+        cursor: pointer;
+        &:hover{
+          background: rgb(202, 32, 32);
           color: white;
-          padding: 10px 20px;
-          display: inline-block;
-          position: relative;
-          border-radius: 20px;
-          &:hover{
-            background: rgb(202, 32, 32);
-            color: white;
-          }
-          span{
-            position: absolute;
-            top: -10px;
-            right: -10px;
-            width: 30px;
-            height: 30px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: black;
-            border-radius: 50%;
-          }
+        }
+        span{
+          position: absolute;
+          top: -10px;
+          right: -10px;
+          width: 30px;
+          height: 30px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background: black;
+          border-radius: 50%;
         }
       }
     }

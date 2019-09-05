@@ -82,17 +82,15 @@ class Products extends React.Component {
                 <button>Filter</button>
             </div>
             <div className="all-products-grid">
-            {SHOP_DATA.map(({ brand, image, title, price, routeName, description, alternative_title  }) => {
+            {SHOP_DATA.map((item) => {
+                const { image, title, price, routeName } = item;
                 return (
                     <div className="product-wrap" key={title}>
                         <Link 
                             to={{
                                 pathname: `/product/${routeName.toLowerCase()}`,
                                 state: {
-                                    brand: brand,
-                                    image: image,
-                                    description: description,
-                                    alternative_title: alternative_title
+                                    item: item,
                                 }}}
                         >
                             <div className="product">
@@ -110,6 +108,6 @@ class Products extends React.Component {
         </div>
     )
   }
-}
+};
 
 export default Products;

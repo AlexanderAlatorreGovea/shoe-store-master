@@ -1,32 +1,33 @@
 import React from 'react';
+import { connect } from 'react-redux';
+
+import { addItem } from '../../redux/cart/cart-actions';
 
 import './ProductPage.scss';
 
-
 const ProductPage = (props) => {
-    console.log(props.location.state)
-    console.log(props.match)
-    console.log(props)
+    const { item }  = props.location.state;
+    const { addItem } = props;
     return (
         <div className="content-area product-single-page">
             <div className="product-imgs">
                 <div className="product">
                 <div className="circle">
-                    <img src={props.location.state.image} />
+                    <img src={item.image} />
                 </div>
                 </div>
             </div>
             <div className="product-detail" >
                 <div className="titles">
                 <div className="brand">
-                    {props.location.state.brand}
+                    {item.brand}
                 </div>
                 <div className="product">
-                    {props.location.state.alternative_title}
+                    {item.alternative_title}
                 </div>
                 </div>
                 <div className="details">
-                    <p>{props.location.state.description}</p>
+                    <p>{item.description}</p>
                 <div id="ProductAddToCartRoot"></div>
 
                 <div className="detail-section">
@@ -62,14 +63,19 @@ const ProductPage = (props) => {
                     </div>
                 </div>
                 </div>
-                <button className="add-to-cart-btn">
+                <button onClick={() => addItem(item)} className="add-to-cart-btn">
                     add to cart
                 </button>
             </div>
         </div>
-    </div>
+     </div>
     )
-}
+};
+
+const mapDispatchToProps = dispatch => ({
+    addItem: item => dispatch(addItem(item))
+});
 
 
-export default ProductPage;
+export default connect(null, mapDispatchToProps)(ProductPage);
+
