@@ -46,7 +46,7 @@ const SHOP_DATA = [
     {
         id: 2,
         title: 'Boost 350 White',
-        secondary_title: 'Yeezy Boost 350 White',
+        alternative_title: 'Yeezy Boost 350 White',
         routeName: 'yeezy',
         gender: [
             {
@@ -81,7 +81,7 @@ const SHOP_DATA = [
     {
         id: 3,
         title: 'Grey Yeezys',
-        secondary_title: 'Adidas Yeezy 500 Bone White',
+        alternative_title: 'Adidas Yeezy 500 Bone White',
         routeName: 'yeezy-bone-whit',
         gender: [
             {
@@ -117,7 +117,7 @@ const SHOP_DATA = [
     {
         id: 4,
         title: 'Jordan Retro Red',
-        secondary_title: 'Jordan Retro Red Highog',
+        alternative_title: 'Jordan Retro Red Highog',
         routeName: 'jordanretro',
         gender: [
             {
@@ -153,7 +153,7 @@ const SHOP_DATA = [
     {
         id: 5,
         title: 'Jordan Retro Blue',
-        secondary_title: 'jordan 1 retrohig',
+        alternative_title: 'jordan 1 retrohig',
         routeName: 'jordanretroblue',
         gender: [
             {
@@ -182,7 +182,7 @@ const SHOP_DATA = [
     {
         id: 6,
         title: 'Brons 13',
-        secondary_title: 'Nike Lebron 13',
+        alternative_title: 'Nike Lebron 13',
         routeName: 'brons',
         gender: [
             {
@@ -210,7 +210,7 @@ const SHOP_DATA = [
     {
         id: 7,
         title: 'Nike Air max',
-        secondary_title: 'nike airmax95 og',
+        alternative_title: 'nike airmax95 og',
         routeName: 'airmax',
         gender: [
             {

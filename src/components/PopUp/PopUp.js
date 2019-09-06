@@ -1,11 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-
+import { withRouter } from 'react-router-dom';
 import './PopUp.scss';
 
-const PopUp = ({ toggleCart, cartItems, itemCount }) => {
-    console.log(cartItems)
+const PopUp = ({ toggleCart, cartItems, itemCount, toggleCartHandler, history }) => {
     return (
         <div
             id="cart-popup"
@@ -27,10 +26,8 @@ const PopUp = ({ toggleCart, cartItems, itemCount }) => {
                         </div>
                     ))
                     ) : (
-                    <span className='empty-message'>Your cart is empty</span>
+                    <span className="empty-message">Your cart is empty</span>
                 )}
-
-
                 </div>
                 <div className="product-total">
                     <div className="inside-container">
@@ -44,8 +41,19 @@ const PopUp = ({ toggleCart, cartItems, itemCount }) => {
                         <div className="number"> $3,000</div>
                     </div>
                 </div>
-                    <div className="checkout">
-                        <div className="title"><Link style={{ color: 'black', textDecoration: 'none' }} to="/checkout">Checkout</Link></div>
+                    <div onClick={toggleCartHandler} className="checkout">
+                        <div className="title">
+                            <Link
+                             to={{ 
+                                pathname: '/checkout', 
+                                state: itemCount
+                              }}
+                            onClick={() => history.push('/checkout')} 
+                            style={{ color: 'black', textDecoration: 'none' }} 
+                            >
+                            Checkout
+                            </Link>
+                        </div>
                         <i className="arrow down cart icon" ></i>
                     </div>
             </div>
@@ -57,4 +65,4 @@ const mapStateToProps = ({ cart: { cartItems } }) => ({
 });
 
 
-export default connect(mapStateToProps)(PopUp);
+export default withRouter(connect(mapStateToProps)(PopUp));

@@ -43,6 +43,7 @@ class Header extends Component {
                 <PopUp
                  toggleCart={toggleCart}
                  itemCount={itemCount}
+                 toggleCartHandler={this.toggleCart}
                 />
             </div>
         );
