@@ -1,16 +1,41 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import Pagination from '../../components/Pagination/Pagination';
 import SHOP_DATA from '../../data/Data';
 
 import './Products.scss';
 
 class Products extends React.Component {
     state = {
-        SHOP_DATA
+        SHOP_DATA,
+        productsPerPage: 7,
+        currentPage: 1
     }
+
+    paginate = (pageNumber) => {
+        this.setState({
+            currentPage: pageNumber
+        })
+    }
+
+    shoeSize = () => {
+        if(this.state.SHOP_DATA !== undefined) {
+     
+          return this.state.SHOP_DATA.available_sizes.map((item) => {
+            return(
+                <div className="option">{item}</div>
+            )
+          })
+        }
+      }
+ 
     render() {
-    const { SHOP_DATA } = this.state;
+    const { SHOP_DATA, currentPage, productsPerPage } = this.state;
+    const totalProducts = SHOP_DATA.length;
+    const indexOfLastProduct = currentPage * productsPerPage;
+    const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+    const currentProducts = SHOP_DATA.slice(indexOfFirstProduct, indexOfLastProduct);
     return (
         <div className="content-area products-all-page">
             <div className="filter-section">
@@ -19,8 +44,8 @@ class Products extends React.Component {
                 <label className="title" htmlFor="gender-options">Gender</label>
                 <div className="content">
                     <div className="gender">
-                    <div className="option">Male</div>
-                    <div className="option">Female</div>
+                        <div className="option">Male</div>
+                        <div className="option">Female</div>
                     </div>
                 </div>
                 </div>
@@ -30,12 +55,12 @@ class Products extends React.Component {
                 <label className="title" htmlFor="brand-options">Brand</label>
                 <div className="content">
                     <div className="brand">
-                    <div className="option">Adidas</div>
-                        <div className="option">Nike</div>
-                        <div className="option">Gucci</div>
-                        <div className="option">New Balance</div>
-                        <div className="option">Dolce & Gabbana</div>
-                        <div className="option">Versace</div>
+                        <label className="option">Adidas</label>
+                        <label className="option">Nike</label>
+                        <label className="option">Gucci</label>
+                        <label className="option">New Balance</label>
+                        <label className="option">Dolce & Gabbana</label>
+                        <label className="option">Versace</label>
                     </div>
                 </div>
                 </div>
@@ -57,7 +82,7 @@ class Products extends React.Component {
                 <label className="title" htmlFor="size-options">Size</label>
                 <div className="content">
                     <div className="size">
-                    <div className="option">4</div>
+                        <div className="option">4</div>
                         <div className="option">4.5</div>
                         <div className="option">5</div>
                         <div className="option">5.5</div>
@@ -82,7 +107,7 @@ class Products extends React.Component {
                 <button>Filter</button>
             </div>
             <div className="all-products-grid">
-            {SHOP_DATA.map((item) => {
+            {currentProducts.map((item) => {
                 const { image, title, price, routeName } = item;
                 return (
                     <div className="product-wrap" key={title}>
@@ -104,6 +129,11 @@ class Products extends React.Component {
                     </div>
                 )
             })}
+            <Pagination 
+                paginate={this.paginate}
+                productsPerPage={productsPerPage}
+                totalProducts={totalProducts}
+            /> 
             </div>
         </div>
     )
