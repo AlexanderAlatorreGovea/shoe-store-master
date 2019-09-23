@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 import Pagination from '../../components/Pagination/Pagination';
 import SHOP_DATA from '../../data/Data';
+import Options from '../../data/Options';
 
 import './Products.scss';
 
@@ -10,7 +11,8 @@ class Products extends React.Component {
     state = {
         SHOP_DATA,
         productsPerPage: 7,
-        currentPage: 1
+        currentPage: 1,
+        populateFormsData: ''
     }
 
     paginate = (pageNumber) => {
@@ -19,16 +21,6 @@ class Products extends React.Component {
         })
     }
 
-    shoeSize = () => {
-        if(this.state.SHOP_DATA !== undefined) {
-     
-          return this.state.SHOP_DATA.available_sizes.map((item) => {
-            return(
-                <div className="option">{item}</div>
-            )
-          })
-        }
-      }
  
     render() {
     const { SHOP_DATA, currentPage, productsPerPage } = this.state;
@@ -36,6 +28,7 @@ class Products extends React.Component {
     const indexOfLastProduct = currentPage * productsPerPage;
     const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
     const currentProducts = SHOP_DATA.slice(indexOfFirstProduct, indexOfLastProduct);
+    
     return (
         <div className="content-area products-all-page">
             <div className="filter-section">
@@ -44,8 +37,7 @@ class Products extends React.Component {
                 <label className="title" htmlFor="gender-options">Gender</label>
                 <div className="content">
                     <div className="gender">
-                        <div className="option">Male</div>
-                        <div className="option">Female</div>
+                        
                     </div>
                 </div>
                 </div>
@@ -55,12 +47,12 @@ class Products extends React.Component {
                 <label className="title" htmlFor="brand-options">Brand</label>
                 <div className="content">
                     <div className="brand">
-                        <label className="option">Adidas</label>
-                        <label className="option">Nike</label>
-                        <label className="option">Gucci</label>
-                        <label className="option">New Balance</label>
-                        <label className="option">Dolce & Gabbana</label>
-                        <label className="option">Versace</label>
+                        <option type="button" placeholder="Adidas" name="Adidas" className="option">Adidas</option>
+                        <option className="option">Nike</option>
+                        <option className="option">Gucci</option>
+                        <option className="option">New Balance</option>
+                        <option className="option">Dolce & Gabbana</option>
+                        <option className="option">Versace</option>
                     </div>
                 </div>
                 </div>
@@ -141,3 +133,4 @@ class Products extends React.Component {
 };
 
 export default Products;
+
