@@ -11,13 +11,11 @@ const Pagination = ({ productsPerPage, totalProducts, paginate }) => {
     return (
         <section className="pagination">
             <ul className="pages">
-                <li>Prev</li>
                 {pageNumbers.map(number => (
                     <li onClick={() => paginate(number)}>
                         {number}
                     </li>
                 ))}
-                <li>Next</li>
             </ul>
         </section>
     );

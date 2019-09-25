@@ -4,10 +4,9 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
 import PopUp from '../PopUp/PopUp';
-import { selectCartItemsCount } from '../../redux/cart/cart-selectors';
+import { selectCartItemsCount, selectCartTotal } from '../../redux/cart/cart-selectors';
 
 import './Header.scss';
-
 
 class Header extends Component {
     constructor(props) {
@@ -25,10 +24,10 @@ class Header extends Component {
 
     render() {
         const { toggleCart } = this.state;
-        const { itemCount } = this.props;
+        const { itemCount, total } = this.props;
         return (
             <div>
-                <header>
+                <header> 
                     <div className="logo">
                         <Link to="/">freshgear</Link>
                     </div>
@@ -40,10 +39,11 @@ class Header extends Component {
                         <div onClick={this.toggleCart} className="cart-link">Cart<span>{itemCount}</span></div>
                     </div>
                 </header>
-                <PopUp
+                <PopUp 
                  toggleCart={toggleCart}
                  itemCount={itemCount}
                  toggleCartHandler={this.toggleCart}
+                 total={total}
                 />
             </div>
         );
@@ -51,6 +51,7 @@ class Header extends Component {
 };
 
 const mapStateToProps = createStructuredSelector({
+    total: selectCartTotal,
     itemCount: selectCartItemsCount
 });
   

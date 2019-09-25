@@ -16,7 +16,7 @@
     .checkout-grid{
       display: grid;
       grid-template-columns: 70% 1fr;
-      grid-gap: 20px;
+      grid-gap: 20px; 
     }
     .forms{
       h3{
@@ -27,7 +27,7 @@
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-gap: 20px;
-        
+        font-weight: 500;
       }
       label{
         display: block;
@@ -35,11 +35,13 @@
       }
     }
     .totals{
+      margin: 1.5rem auto;
       .items,.tax,.shipping,.price{
         margin: 0 0 1.3rem;
         text-transform: capitalize;
         font-weight: 300;
-        font-size: 1.6rem;
+        font-size: 1.25rem;
+        letter-spacing: 1.18px;
         span{
           font-weight: 700;
         }

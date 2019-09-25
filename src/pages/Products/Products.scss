@@ -86,11 +86,10 @@
         }
         .price{
           display: grid;
-          grid-template-columns: 1fr 1fr;
+          grid-template-columns: 50% 50%;
           grid-gap: 10px;
           list-style: none;
           text-align: center;
-          
           input{
             font-size: .9rem;
             color: grey !important;
@@ -135,6 +134,7 @@
       padding: 0 20px;
       .product-wrap{
         text-align: center;
+        //padding-top: 100px;
         .title{
           font-size: 1.2rem;
           font-weight: 700;

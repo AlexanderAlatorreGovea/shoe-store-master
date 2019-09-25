@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 
 import Pagination from '../../components/Pagination/Pagination';
 import SHOP_DATA from '../../data/Data';
-import Options from '../../data/Options';
 
 import './Products.scss';
 
@@ -21,6 +20,32 @@ class Products extends React.Component {
         })
     }
 
+    populateBrands = () => {
+        if(SHOP_DATA != undefined) {
+            let _brands = SHOP_DATA.map(item => item.brand)
+            _brands = new Set(_brands)
+            _brands = [..._brands]
+            return _brands.map((brand) => {
+                return (
+                    <option type="button" placeholder={brand} name={brand} className="option">{brand}</option>
+                )
+            })
+        }
+    }
+    
+
+    populateSizes = () => {
+        if(SHOP_DATA != undefined) {
+            let _sizes = SHOP_DATA.flatMap(item => item.available_sizes)
+            _sizes = new Set(_sizes)
+            _sizes = [..._sizes]
+            return _sizes.map((size) => {
+                return (
+                    <div value={size} key={size} className="option">{size}</div>
+                )
+            })
+        }
+    }
  
     render() {
     const { SHOP_DATA, currentPage, productsPerPage } = this.state;
@@ -28,7 +53,7 @@ class Products extends React.Component {
     const indexOfLastProduct = currentPage * productsPerPage;
     const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
     const currentProducts = SHOP_DATA.slice(indexOfFirstProduct, indexOfLastProduct);
-    
+    console.log(SHOP_DATA)
     return (
         <div className="content-area products-all-page">
             <div className="filter-section">
@@ -37,7 +62,8 @@ class Products extends React.Component {
                 <label className="title" htmlFor="gender-options">Gender</label>
                 <div className="content">
                     <div className="gender">
-                        
+                        <option className="option">Men</option>
+                        <option className="option">Women</option>
                     </div>
                 </div>
                 </div>
@@ -47,12 +73,7 @@ class Products extends React.Component {
                 <label className="title" htmlFor="brand-options">Brand</label>
                 <div className="content">
                     <div className="brand">
-                        <option type="button" placeholder="Adidas" name="Adidas" className="option">Adidas</option>
-                        <option className="option">Nike</option>
-                        <option className="option">Gucci</option>
-                        <option className="option">New Balance</option>
-                        <option className="option">Dolce & Gabbana</option>
-                        <option className="option">Versace</option>
+                        {this.populateBrands()}
                     </div>
                 </div>
                 </div>
@@ -62,7 +83,6 @@ class Products extends React.Component {
                 <label className="title" htmlFor="price-options">Price</label>
                 <div className="content">
                     <div className="price">
-                    
                         <input type="text" name="min" placeholder="min" className="option" ></input>
                         <input type="text" name="max" placeholder="max" className="option" ></input>
                     </div>
@@ -74,24 +94,7 @@ class Products extends React.Component {
                 <label className="title" htmlFor="size-options">Size</label>
                 <div className="content">
                     <div className="size">
-                        <div className="option">4</div>
-                        <div className="option">4.5</div>
-                        <div className="option">5</div>
-                        <div className="option">5.5</div>
-                        <div className="option">6</div>
-                        <div className="option">6.5</div>
-                        <div className="option">7</div>
-                        <div className="option">7.5</div>
-                        <div className="option">8</div>
-                        <div className="option">8.5</div>
-                        <div className="option">9</div>
-                        <div className="option">9.5</div>
-                        <div className="option">10</div>
-                        <div className="option">10.5</div>
-                        <div className="option">11</div>
-                        <div className="option">11.5</div>
-                        <div className="option">12</div>
-                        <div className="option">12.5</div>
+                        {this.populateSizes()}
                     </div>
                 </div>
                 </div>
@@ -133,4 +136,3 @@ class Products extends React.Component {
 };
 
 export default Products;
-

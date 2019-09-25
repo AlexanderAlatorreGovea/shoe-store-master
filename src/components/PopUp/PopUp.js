@@ -1,13 +1,16 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+
+import { removeItem } from '../../redux/cart/cart-actions';
+
+
 import './PopUp.scss';
 
-const PopUp = ({ toggleCart, cartItems, itemCount, toggleCartHandler, history }) => {
+const PopUp = ({ cart, total, toggleCart, cartItems, itemCount, toggleCartHandler, history, removeItem }) => {
     return (
         <div
-            id="cart-popup"
+            id="cart-popup" 
             className={`${toggleCart && 'active'}`}
             >
                 <div className="cart-title">
@@ -18,9 +21,9 @@ const PopUp = ({ toggleCart, cartItems, itemCount, toggleCartHandler, history })
                     cartItems.map(cartItem => (
                         <div className="item-container">
                             <div className="item">
-                                <img src={cartItem.image} />
+                                <img alt="item" src={cartItem.image} />
                                 <div className="delete-btn">
-                                    <div className="circle">X</div>
+                                    <div onClick={() => removeItem(cartItem)} className="circle">X</div>
                                 </div>
                             </div>
                         </div>
@@ -38,18 +41,18 @@ const PopUp = ({ toggleCart, cartItems, itemCount, toggleCartHandler, history })
                 <div className="price-total">
                     <div className="inside-container">
                         <div className="title">Total</div>
-                        <div className="number"> $3,000</div>
+                        <div className="number">${total}</div>
                     </div>
                 </div>
                     <div onClick={toggleCartHandler} className="checkout">
                         <div className="title">
                             <Link
                              to={{ 
-                                pathname: '/checkout', 
-                                state: itemCount
-                              }}
-                            onClick={() => history.push('/checkout')} 
-                            style={{ color: 'black', textDecoration: 'none' }} 
+                                    pathname: '/checkout', 
+                                    state: itemCount
+                                }}
+                                onClick={() => history.push('/checkout')} 
+                                style={{ color: 'black', textDecoration: 'none' }} 
                             >
                             Checkout
                             </Link>
@@ -58,11 +61,17 @@ const PopUp = ({ toggleCart, cartItems, itemCount, toggleCartHandler, history })
                     </div>
             </div>
     )
-};
+}; 
 
 const mapStateToProps = ({ cart: { cartItems } }) => ({
     cartItems
 });
 
+const mapDispatchToProps = dispatch => ({
+    removeItem: item => dispatch(removeItem(item))
+});
 
-export default withRouter(connect(mapStateToProps)(PopUp));
+export default withRouter(connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(PopUp));

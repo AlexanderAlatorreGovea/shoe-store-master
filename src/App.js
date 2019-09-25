@@ -17,7 +17,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <Header/>
-        <Switch >
+        <Switch>
           <Route  exact path="/" component={ LandingPage }/>
           <Route  exact path="/about" component={ AboutPage }/>
           <Route  exact path="/products" component={ Products }/>

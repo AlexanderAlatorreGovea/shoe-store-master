@@ -49,19 +49,17 @@
 .container{
   width: 100%;
   max-width: 1400px;
-  margin: 0 auto;
+  margin: 0 auto; 
   padding:0 20px;
 }
 
-
-
 //blurs out the background when the content area is active
 
-.content-area{
+.content-area { 
   background: #E3E8EC;
   filter: blur(0);
   transition: filter .4s ease-in-out;
-  &.cart-popup-active{
+  &.cart-popup-active {
       filter: blur(20px);
   }
 }

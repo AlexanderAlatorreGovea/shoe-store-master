@@ -59,7 +59,7 @@ const Checkout = ({ total, itemCount }) => {
                             <label for="fname">First Name</label>
                             <input id="fname" type="text" name="fname"></input>
                         </div>
-                        <div className="form-group">
+                        <div className="form-group"> 
                             <label for="lname">Last Name</label>
                             <input id="lname" type="text" name="lname"></input>
                         </div>
@@ -109,6 +109,6 @@ const mapStateToProps = createStructuredSelector({
     cartItems: selectCartItems,
     total: selectCartTotal,
     itemCount: selectCartItemsCount
-})
+});
 
 export default connect(mapStateToProps)(Checkout);

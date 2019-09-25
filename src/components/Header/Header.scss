@@ -33,7 +33,7 @@ header{
           color: red;
         }
         }
-      .cart-link{
+      .cart-link{ 
         background: #484c4f;
         color: white;
         padding: 10px 20px;
@@ -41,6 +41,7 @@ header{
         position: relative;
         border-radius: 20px;
         cursor: pointer;
+        transition: background .2s ease-in-out;
         &:hover{
           background: rgb(202, 32, 32);
           color: white;
