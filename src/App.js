@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import LandingPage from './pages/LandingPage/LandingPage';
 import AboutPage from './pages/AboutPage/AboutPage';
@@ -21,9 +21,9 @@ class App extends React.Component {
           <Route  exact path="/" component={ LandingPage }/>
           <Route  exact path="/about" component={ AboutPage }/>
           <Route  exact path="/products" component={ Products }/>
+          <Route  exact strict path="/product" component={ ProductPage }/>
           <Route  exact path="/login" component={ LoginPage }/>
           <Route  exact path="/register" component={ RegisterPage }/>
-          <Route  exact path="/product/:id" component={ ProductPage }/>
           <Route  exact path="/checkout" component={ Checkout  }/>
           <Route  exact path="/orders" component={ OrdersPage }/>
           <Route  exact path="/changepassword" component={ ChangePassword }/>

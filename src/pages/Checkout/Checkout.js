@@ -10,9 +10,9 @@ import {
 
 import './Checkout.scss';
 
-
-
 const Checkout = ({ total, itemCount }) => {
+    const tax = total * .0725;
+    const _total = total + tax + 10;
     return (
         <section className="content-area checkout-page">
             <div className="container">
@@ -87,16 +87,19 @@ const Checkout = ({ total, itemCount }) => {
                     </div>
                     <div className="totals">
                         <div className="items">
-                        <span>Items:</span>{itemCount}
+                            <span>Items:</span>&nbsp; {itemCount}
                         </div>
                         <div className="tax">
-                        <span>Tax:</span>$8
+                            <span>Tax:</span>&nbsp; ${tax == 0 ? 0 : tax.toFixed(2)}
                         </div>
                         <div className="shipping">
-                        <span>Shipping:</span>$10
+                            <span>Shipping:</span>&nbsp; $10
+                        </div>
+                        <div className="sub-total">
+                            <span>sub total:</span>&nbsp; ${total}
                         </div>
                         <div className="price">
-                        <span>Total Price:</span>${total}
+                            <span>total:</span>&nbsp; ${itemCount > 0 ? _total.toFixed(2) : 0}
                         </div>
                     </div>
                     </div>

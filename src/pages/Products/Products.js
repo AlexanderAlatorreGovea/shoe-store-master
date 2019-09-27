@@ -1,8 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 import Pagination from '../../components/Pagination/Pagination';
+import Spinner from './../../components/Spinner/Spinner';
 import SHOP_DATA from '../../data/Data';
+
 
 import './Products.scss';
 
@@ -53,7 +55,11 @@ class Products extends React.Component {
     const indexOfLastProduct = currentPage * productsPerPage;
     const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
     const currentProducts = SHOP_DATA.slice(indexOfFirstProduct, indexOfLastProduct);
-    console.log(SHOP_DATA)
+
+    const { match, location, history } = this.props;
+    console.log(match)
+    console.log(location)
+    console.log(history)
     return (
         <div className="content-area products-all-page">
             <div className="filter-section">
@@ -101,21 +107,22 @@ class Products extends React.Component {
 
                 <button>Filter</button>
             </div>
+            <Spinner />
             <div className="all-products-grid">
             {currentProducts.map((item) => {
-                const { image, title, price, routeName } = item;
+                const { image, title, price } = item;
                 return (
                     <div className="product-wrap" key={title}>
                         <Link 
                             to={{
-                                pathname: `/product/${routeName.toLowerCase()}`,
+                                pathname: `/product`,
                                 state: {
-                                    item: item,
+                                    item: item
                                 }}}
                         >
                             <div className="product">
                                 <div className="circle">
-                                <img src={image} />
+                                <img alt="item" src={image} />
                                 </div>
                             </div>
                         </Link>
@@ -135,4 +142,4 @@ class Products extends React.Component {
   }
 };
 
-export default Products;
+export default withRouter(Products);
