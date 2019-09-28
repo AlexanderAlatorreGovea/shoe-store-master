@@ -3,7 +3,6 @@ const mongoose = require('mongoose');
 const productSchema = new mongoose.Schema({
     title: {
         type: String,
-        unique: true
     },
     alternative_title: {
         type: String
@@ -14,16 +13,26 @@ const productSchema = new mongoose.Schema({
         unique: true,
         trim: true
     },
-    gender: {
-        type: [String]
-    },
+    gender: [{ male: Boolean, female: Boolean }],
     brand: {
         type: String,
-        required: [true, 'A tour must have description'],
+        required: [true, 'A shoe must have a brand'],
         trim: true
     },
     price: Number,
-    available_sizes: [Number],
+    priceDiscount: {
+        type: Number,
+        validate: {
+          validator: function(val) {
+            // this only points to current doc on NEW document creation
+            return val < this.price;
+          },
+          message: 'Discount price ({VALUE}) should be below regular price'
+        }
+    },
+    stock : [
+        { size: Number, stock: Number }
+    ],
     description: {
         type: String,
         required: [true, 'a tour must have a rating'],
@@ -33,6 +42,6 @@ const productSchema = new mongoose.Schema({
     image: String
 });
 
-const Product = mongoose.model('Product', productSchema);
+const Products = mongoose.model('Product', productSchema);
 
-module.exports = Product;
+module.exports = Products;
