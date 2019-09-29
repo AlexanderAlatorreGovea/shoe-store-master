@@ -5,7 +5,7 @@
         "routeName": "Scotts",
         "gender": [
             {
-            "male": true,
+            "male": true, 
             "female": true
             }
         ],
@@ -67,7 +67,7 @@
                 { "size": 10.5, "stock": 7 },
                 { "size": 11, "stock": 45 }
             ],
-        "description": "The adidas Yeezy Boost 350 v2 “Static” released in December 2018, bringing a new look to Kanye Wests popular silhouette. The updated Yeezy 350 features a transparent mesh panel in place of the usual side stripe. The panel is woven into the Primeknit upper on each lateral side. The Yeezy 350 "Static" introduced an intricate new Primeknit pattern in white and grey hues. The clean appearance is solidified with a translucent white rubber midsole and outsole that wrap full-length Boost cushioning. The unique design of the adidas Yeezy Boost 350 v2 “Static” provided a refreshing update that will be in-demand for years to come.",
+        "description": "The adidas Yeezy Boost 350 v2 Static released in December 2018, bringing a new look to Kanye Wests popular silhouette. The updated Yeezy 350 features a transparent mesh panel in place of the usual side stripe. The panel is woven into the Primeknit upper on each lateral side. The Yeezy 350 Static introduced an intricate new Primeknit pattern in white and grey hues. The clean appearance is solidified with a translucent white rubber midsole and outsole that wrap full-length Boost cushioning. The unique design of the adidas Yeezy Boost 350 v2 Static provided a refreshing update that will be in-demand for years to come.",
         "image": "https://drive.google.com/uc?id=16Js6C1UyksZdVrPj_VdVKC16yYQcbMIp"
     },
     {
@@ -211,21 +211,21 @@
                 { "size": 11, "stock": 57 }
             ]
         ,
-        "description": "The adidas Yeezy Boost 350 V2 “Black Reflective” is a spring 2019 release of the famous sneaker by Kanye West. This variation of the “Black” Yeezy Boost 350 V2 features reflective silver material intertwined into the black Primeknit upper. The design also continued the trend of translucent side stripes like all of the model’s 2019 releases. A red accent stripe is added to the heel tabs, while the black theme continues on the translucent rubber midsole that houses the full-length Boost foam cushioning. More limited than the non-reflective black colorway, the Yeezy Boost 350 V2 “Black Reflective” released on June 5, 2019 at select retailers",
+        "description": "The adidas Yeezy Boost 350 V2 Black Reflective is a spring 2019 release of the famous sneaker by Kanye West. This variation of the Black” Yeezy Boot 350 V2 features reflective silver material intertwined into the black Primeknit upper. The design also continued the trend of translucent side stripes like all of the model’s 2019 releases. A red accent stripe is added to the heel tabs, while the black theme continues on the translucent rubber midsole that houses the full-length Boost foam cushioning. More limited than the non-reflective black colorway, the Yeezy Boost 350 V2 “Black Reflective” released on June 5, 2019 at select retailers",
         "image": "https://drive.google.com/uc?id=152yhjhs7b9X1OIQ9mLbHcfJ5LhsGQj2X"
     },
     {
-        "title": "Scotts",
-        "alternative_title": "Jeremy Scotts Pandabear",
-        "routeName": "Scotts",
+        "title": "Nike Air Max",
+        "alternative_title": "nike airmax95 og",
+        "routeName": "airmax",
         "gender": [
             {
             "male": true,
             "female": true
             }
         ],
-        "brand": "Adidas",
-        "price": 400,
+        "brand": "Nike",
+        "price": 330,
         "stock": 
             [
                 { "size": 3, "stock": 10 },
@@ -247,7 +247,7 @@
                 { "size": 11, "stock": 57 }
             ]
         ,
-        "description": "The Womens Air Jordan 1 Satin Black Toe” is a special construction of the original colorway of the Jordan 1 with satin paneling on the heel. Following the same blueprint of the Satin Shattered Backboard” colorway that was also a women’s exclusive, this Satin Black Toe” edition features a black and white leather upper with red satin at the heel. The Air Jordan wings” logo on the ankle is presented in a metal medallion to complete the premium look. The Women’s Air Jordan 1 Satin Black Toe” released on August 17, 2019 in limited quantities.",
+        "description": "The adidas Yeezy Boost 350 V2 “Black Reflective” is a spring 2019 release of the famous sneaker by Kanye West. This variation of the “Black” Yeezy Boost 350 V2 features reflective silver material intertwined into the black Primeknit upper. The design also continued the trend of translucent side stripes like all of the model’s 2019 releases. A red accent stripe is added to the heel tabs, while the black theme continues on the translucent rubber midsole that houses the full-length Boost foam cushioning. More limited than the non-reflective black colorway, the Yeezy Boost 350 V2 “Black Reflective” released on June 5, 2019 at select retailers.",
         "image": "https://drive.google.com/uc?id=1nT9D0QyAeDNlu04cABl6Bn6HlSEon3FJ"
     }
 ]

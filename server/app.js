@@ -1,11 +1,18 @@
 /* eslint-disable no-cond-assign */
+const path = require('path');
 const express = require('express');
 const morgan = require('morgan');
-const cors = require('cors');
+const rateLimit = require('express-rate-limit');
 const helmet = require('helmet');
 const mongoSanitize = require('express-mongo-sanitize');
 const xss = require('xss-clean');
+const hpp = require('hpp');
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
 const compression = require('compression');
+const cors = require('cors');
+
+const productRouter = require('./routes/productRoutes');
 
 const app = express();
 
@@ -33,6 +40,7 @@ app.use(xss());
 //serving static files
 app.use(compression());
 
-app.use(express.json());
+// 3) ROUTES
+app.use('/api/v1/products', productRouter);
 
 module.exports = app;

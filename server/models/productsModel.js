@@ -35,9 +35,7 @@ const productSchema = new mongoose.Schema({
     ],
     description: {
         type: String,
-        required: [true, 'a tour must have a rating'],
-        unique: true,
-        trim: true
+        required: [true, 'a shoe must have a rating'],
     },
     image: String
 });

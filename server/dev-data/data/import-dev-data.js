@@ -1,7 +1,8 @@
 const fs = require('fs');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
-const Tour = require('./../../models/toursModel');
+const Product = require('../../models/productsModel');
+const User = require('../../models/userModel');
 
 dotenv.config({ path: './config.env' });
 
@@ -20,14 +21,17 @@ mongoose
 
 //Read Json FILE_EXTNAME
 
-const products = JSON.parse(
-  fs.readFileSync(`${__dirname}/shoe-data.json`, 'utf-8')
-);
+ const products = JSON.parse(
+   fs.readFileSync(`${__dirname}/shoe-data.json`, 'utf-8')
+ );
+
+const users = JSON.parse(fs.readFileSync(`${__dirname}/clients.json`, 'utf-8'));
 
 //IMPORT DATA INTO DB
 const importData = async () => {
   try {
     await Product.create(products);
+    await User.create(users, { validateBeforeSave: false });
     console.log('Data successfully loaded!');
   } catch (err) {
     console.log(err);
@@ -38,7 +42,8 @@ const importData = async () => {
 // DELETE ALL DATA FROM DB
 const deleteData = async () => {
   try {
-    await Products.deleteMany(products);
+    await Product.deleteMany();
+    await User.deleteMany();
     console.log('Data successfully deleted!');
   } catch (err) {
     console.log(err);
