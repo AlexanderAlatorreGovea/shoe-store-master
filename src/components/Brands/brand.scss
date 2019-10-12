@@ -1,0 +1,30 @@
+.brand{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 10px;
+    list-style: none;
+    text-align: center;
+    .option{
+        border: 1px solid #fff;
+        padding: 10px;
+        display: inline-block;
+        color: grey;
+        transition: all .2s ease-in-out;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        &:hover, &.selected{
+          background: red;
+          color: white;
+          font-weight: 700;
+          border: 1px solid red;
+        }
+    }
+    #active-category {
+        background: red;
+        color: white;
+        font-weight: 700;
+        border: 1px solid red;
+    }
+}

@@ -8,9 +8,9 @@ import { removeItem } from '../../redux/cart/cart-actions';
 import './PopUp.scss';
 
 const PopUp = ({ cart, total, toggleCart, cartItems, itemCount, toggleCartHandler, history, removeItem }) => {
-    return (
+  return (
         <div
-            id="cart-popup" 
+            id="cart-popup"
             className={`${toggleCart && 'active'}`}
             >
                 <div className="cart-title">
@@ -18,7 +18,7 @@ const PopUp = ({ cart, total, toggleCart, cartItems, itemCount, toggleCartHandle
                 </div>
                 <div className="cart-items">
                 {cartItems.length ? (
-                    cartItems.map(cartItem => (
+                  cartItems.map(cartItem => (
                         <div className="item-container">
                             <div className="item">
                                 <img alt="item" src={cartItem.image} />
@@ -27,8 +27,8 @@ const PopUp = ({ cart, total, toggleCart, cartItems, itemCount, toggleCartHandle
                                 </div>
                             </div>
                         </div>
-                    ))
-                    ) : (
+                  ))
+                ) : (
                     <span className="empty-message">Your cart is empty</span>
                 )}
                 </div>
@@ -47,12 +47,12 @@ const PopUp = ({ cart, total, toggleCart, cartItems, itemCount, toggleCartHandle
                     <div onClick={toggleCartHandler} className="checkout">
                         <div className="title">
                             <Link
-                             to={{ 
-                                    pathname: '/checkout', 
-                                    state: itemCount
-                                }}
-                                onClick={() => history.push('/checkout')} 
-                                style={{ color: 'black', textDecoration: 'none' }} 
+                             to={{
+                               pathname: '/checkout',
+                               state: itemCount,
+                             }}
+                                onClick={() => history.push('/checkout')}
+                                style={{ color: 'black', textDecoration: 'none' }}
                             >
                             Checkout
                             </Link>
@@ -60,18 +60,18 @@ const PopUp = ({ cart, total, toggleCart, cartItems, itemCount, toggleCartHandle
                         <i className="arrow down cart icon" ></i>
                     </div>
             </div>
-    )
-}; 
+  )
+};
 
 const mapStateToProps = ({ cart: { cartItems } }) => ({
-    cartItems
+  cartItems,
 });
 
 const mapDispatchToProps = dispatch => ({
-    removeItem: item => dispatch(removeItem(item))
+  removeItem: item => dispatch(removeItem(item)),
 });
 
 export default withRouter(connect(
-    mapStateToProps,
-    mapDispatchToProps
+  mapStateToProps,
+  mapDispatchToProps,
 )(PopUp));

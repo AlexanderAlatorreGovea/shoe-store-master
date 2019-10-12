@@ -10,7 +10,10 @@ import ProductPage from './pages/ProductPage/ProductPage';
 import OrdersPage from './pages/OrdersPage/OrdersPage';
 import ChangePassword from './pages/ChangePassword/ChangePassword';
 import Checkout from './pages/Checkout/Checkout';
+// eslint-disable-next-line no-unused-vars
 import Header from './components/Header/Header';
+import checkboxes from './components/checkboxes';
+
 
 class App extends React.Component {
   render() {
@@ -21,12 +24,14 @@ class App extends React.Component {
           <Route  exact path="/" component={ LandingPage }/>
           <Route  exact path="/about" component={ AboutPage }/>
           <Route  exact path="/products" component={ Products }/>
-          <Route  exact strict path="/product" component={ ProductPage }/>
+          <Route  exact strict path="/products/:product" component={ ProductPage }/>
           <Route  exact path="/login" component={ LoginPage }/>
           <Route  exact path="/register" component={ RegisterPage }/>
           <Route  exact path="/checkout" component={ Checkout  }/>
           <Route  exact path="/orders" component={ OrdersPage }/>
           <Route  exact path="/changepassword" component={ ChangePassword }/>
+
+          <Route  exact path="/check" component={ checkboxes }/>
         </Switch>
       </div>
     );
