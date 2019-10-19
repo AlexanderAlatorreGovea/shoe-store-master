@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
+ 
 import { addItem } from '../../redux/cart/cart-actions';
 
 import './ProductPage.scss';
@@ -8,6 +8,8 @@ import './ProductPage.scss';
 const ProductPage = (props) => {
     const { item }  = props.location.state;
     const { addItem } = props;
+
+    console.log(item.stock)
     return (
         <div className="content-area product-single-page">
             <div className="product-imgs">
@@ -59,10 +61,31 @@ const ProductPage = (props) => {
 
                             100% Authenticity, Guaranteed
                             We carefully inspect every shoe with a fine toothed comb, twice, to validate its authenticity, and to check for conditional/manufacturing issues to ensure all of our items are pristine . We stand behind every item we sell, so you can feel safe about buying. Learn more about our policies here.
-                        </p>
+                            </p>
+                        </div>
                     </div>
                 </div>
+
+                <div className="detail-section">
+                    <div className="detail">
+                        <input type="checkbox" id="sizes-dropdown" className="toggle"></input>
+                        <label className="title" for="sizes-dropdown">Sizes</label>
+                        <div className="content">
+                            <div style={{display: 'flex', flexDirection: 'column'}}>
+                                <div style={{display: 'flex', flexDirection: 'column'}} >
+                                    {item.stock.map((prod) => {
+                                        return (
+                                            <div 
+                                                style={{display: 'flex', padding: '20px', background: 'red', flexWrap: 'wrap', margin: '3px' }}>
+                                                {prod.size}
+                                            </div>                                    )
+                                    })}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
                 <button onClick={() => addItem(item)} className="add-to-cart-btn">
                     add to cart
                 </button>

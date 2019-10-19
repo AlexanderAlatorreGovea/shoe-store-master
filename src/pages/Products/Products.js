@@ -24,8 +24,9 @@ class Products extends React.Component {
             productsPerPage: 7,
             currentPage: 1,
 
+            newProducts: [],
+
             isChecked: false,
-            sizes: [],
 
             populateFormsData: '',
             updateFilters: [],
@@ -34,7 +35,7 @@ class Products extends React.Component {
             max_price: 300,
             male: true,
             female: true,
-            brand: '',
+            brand: '', 
             size: '',
             stock: ''
         };
@@ -60,14 +61,6 @@ class Products extends React.Component {
         this.selectedCheckboxes = new Set();
     }
 
-    productSize = () => {
-        this.state.size.map((item) => {
-            if (console.log(item.stock) !== 0 )
-                this.setState({
-                    inStock: true
-                })
-        })
-    }
 
     paginate = (pageNumber) => {
         this.setState({
@@ -97,59 +90,31 @@ class Products extends React.Component {
 
     createCheckboxes = () => available_sizes.map(this.createCheckbox);
 
-    handleFormSubmit = formSubmitEvent => {
-       formSubmitEvent.preventDefault();
+    handleFormSubmit = event => {
+       event.preventDefault();
 
-       let values = [];
+       //const selectedSizes = [...this.selectedCheckboxes];
 
-       var size = 0;
+       const selectedSizes = []
 
-       let arr = [];
+       for (const checkbox of this.selectedCheckboxes) {
+            selectedSizes.push(checkbox)
+        }
 
-    //    const mapped = this.state.products.map((product) => {
-    //        return product.map((item) => {
-    //             return () => {
-    //                 if (item.stock === 0) {
-    //                         item.size = false
-    //                     for (let checkbox of this.selectedCheckboxes) {
-    //                         if (item.size.has(checkbox) && checkbox !== undefined) {
-    //                             return arr.push(product)
-    //                         }
-    //                     }
-    //                 }
-    //             }
-    //        })
-    //    })
+        const filteredProducts = this.state.products.filter(product =>
+            selectedSizes.every(size =>
+              product.stock.some(s => 
+                s.stock > 0 && s.size === size
+                )
+            )
+        );
 
-       const mapped = this.state.products.map((product) => {
-           const allProducts = product.stock;
-           console.log(allProducts)
-           console.log(product)
-           return allProducts.map((item) => {
-                    if (item.stock === 0 ) {
-                        return item.size === false
-                    } else if (item.size !== 0 ) {
-                        for (let checkbox of this.selectedCheckboxes) {
-                            if (item.size.includes(checkbox) && checkbox !== undefined) {
-                                return arr.push(product)
-                            }
-                        }
-                    }
-            })
-       })
+        this.setState({
+            products: filteredProducts
+        })
 
-       console.log(mapped)
-
-        // if (values) {
-        //     this.state.products.filter((product) => {
-        //     return product.stock.filter((item) => {
-        //         if (item.stock !== 0)  {
-        //             return console.log(values.includes(item.size))//[item.size].includes(values)
-        //         } else {
-        //             return this.state.products
-        //         }
-        //     })
-        // }) 
+        console.log(filteredProducts)
+        console.log(selectedSizes)
     } 
 
        //    const val = values.map((value) => value)
@@ -392,7 +357,7 @@ class Products extends React.Component {
                     <Brands 
                         products={currentProducts}
                         filterBrand={this.filterBrand}
-                        activeBrand={activeBrand}
+                        activeBrand={activeBrand} 
                     />
                 </div>
                 </div>
@@ -418,12 +383,12 @@ class Products extends React.Component {
                 </div> 
                 </div>
 
-                <button onClick={this.handleFormSubmit}>Filter</button>
+                <button type="submit" onClick={this.handleFormSubmit}>Filter</button>
             </div>
             { isLoading && <Spinner /> }
             <div className="all-products-grid">
             {currentProducts.map((item) => {
-            const { image, title, price } = item;
+            const { image, title, price, stock } = item;
             let brand = [item.brand];
             if (brand.indexOf(activeBrand) < 0 && activeBrand !== 'all') return null;
             return (
@@ -432,7 +397,8 @@ class Products extends React.Component {
                         to={{
                             pathname: `${location.pathname}/${item.title}`,
                             state: {
-                                item: item
+                                item: item,
+                                inStock: stock
                         }}}
                     >
                         <div className="product">
