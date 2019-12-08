@@ -30,7 +30,6 @@ class App extends React.Component {
           <Route  exact path="/checkout" component={ Checkout  }/>
           <Route  exact path="/orders" component={ OrdersPage }/>
           <Route  exact path="/changepassword" component={ ChangePassword }/>
-
           <Route  exact path="/check" component={ checkboxes }/>
         </Switch>
       </div>

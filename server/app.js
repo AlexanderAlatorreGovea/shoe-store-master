@@ -13,6 +13,7 @@ const compression = require('compression');
 const cors = require('cors');
 
 const productRouter = require('./routes/productRoutes');
+const authRouter = require('./routes/authRoutes');
 
 const app = express();
 
@@ -42,5 +43,6 @@ app.use(compression());
 
 // 3) ROUTES
 app.use('/api/v1/products', productRouter);
+app.use('/api/v1/auth', authRouter);
 
 module.exports = app;

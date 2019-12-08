@@ -33,6 +33,7 @@ const productSchema = new mongoose.Schema({
     stock : [
         { size: Number, stock: Number }
     ],
+    chosenSize: [],
     description: {
         type: String,
         required: [true, 'a shoe must have a rating'],

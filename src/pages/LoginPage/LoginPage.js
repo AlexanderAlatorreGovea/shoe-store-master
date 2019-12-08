@@ -21,7 +21,6 @@ const LoginPage = () => (
                     <a href="#" style={{ boxShadow: '0 1px 6px 0 rgba(32, 33, 36, .28)', borderRadius: '1.2rem' , background: '#3b5998', color: 'white' }}><i className="facebook f icon"></i>  Facebook</a>
                     <a href="#" style={{ boxShadow: '0 1px 6px 0 rgba(32, 33, 36, .28)', borderRadius: '1.2rem' , background: '#1DA1F2', color: 'white' }}><i className="twitter icon"></i> Twitter</a>
                 </div>
-
             </div>
             <div className="footer">
                 Need an account? <Link to="register">Sign Up</Link>

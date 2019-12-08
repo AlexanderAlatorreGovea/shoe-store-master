@@ -4,30 +4,35 @@ import { connect } from 'react-redux';
 
 import { removeItem } from '../../redux/cart/cart-actions';
 
-
 import './PopUp.scss';
 
-const PopUp = ({ cart, total, toggleCart, cartItems, itemCount, toggleCartHandler, history, removeItem }) => {
-  return (
+const PopUp = ({ total, toggleCart, cartItems, itemCount, toggleCartHandler, history, removeItem }) => {
+    
+    console.log(cartItems)
+    return (
         <div
-            id="cart-popup"
+            id="cart-popup" 
             className={`${toggleCart && 'active'}`}
             >
                 <div className="cart-title">
                     <div className="title">My Cart</div>
-                </div>
+                </div> 
                 <div className="cart-items">
                 {cartItems.length ? (
-                  cartItems.map(cartItem => (
+                  cartItems.map(cartItem => {
+                    return(
                         <div className="item-container">
                             <div className="item">
                                 <img alt="item" src={cartItem.image} />
                                 <div className="delete-btn">
-                                    <div onClick={() => removeItem(cartItem)} className="circle">X</div>
+                                    <div 
+                                        onClick={() => {removeItem(cartItem)}} 
+                                    className="circle">X</div>
                                 </div>
                             </div>
                         </div>
-                  ))
+                       ) 
+                  })
                 ) : (
                     <span className="empty-message">Your cart is empty</span>
                 )}
@@ -64,7 +69,7 @@ const PopUp = ({ cart, total, toggleCart, cartItems, itemCount, toggleCartHandle
 };
 
 const mapStateToProps = ({ cart: { cartItems } }) => ({
-  cartItems,
+  cartItems
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -8,21 +8,25 @@ const Brands = ({ products, filterBrand, activeBrand }) => {
         filterBrand(category);
     }
 
-    products.map((product) => {
-        let brandArray = [product.brand];
-        return (
-            // eslint-disable-next-line array-callback-return
-            brandArray.map((category) => {
-                if (categoryArray.indexOf(category) < 0) {
-                    categoryArray.push(category);
-                }
-            })
-        )
-    })
+    // // products.map((product) => {
+    // //     let brandArray = [product.brand];
+    // //     return (
+    // //         // eslint-disable-next-line array-callback-return
+    // //         brandArray.map((category) => {
+    // //             //if (categoryArray.indexOf(category) < 0) {
+    // //                 categoryArray.push(category);
+    // //            // }
+    // //         })
+    // //     )
+    // // })
+
+    let _brands = products.map(item => item.brand)
+    _brands = new Set(_brands)
+    _brands = [..._brands]
 
     return (
         <div className="brand">
-            {categoryArray.map(category => 
+            {_brands.map(category => 
                 <div 
                     id={category === activeBrand ? 'active-category' : '' }
                     onClick={() => handleChange(category)} 

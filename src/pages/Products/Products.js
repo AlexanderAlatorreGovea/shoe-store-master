@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
+import uuid from "uuid";
 import axios from 'axios';
 //import qs from 'query-string';
 
@@ -9,7 +9,6 @@ import Spinner from './../../components/Spinner/Spinner';
 import Brands from './../../components/Brands/Brands';
 import Checkbox from './../../components/Checkbox/Checkbox';
 import available_sizes from './../../data/Sizes';
-import { updateFilters } from './../../redux/filters/filter-actions';
 
 import './Products.scss';
 
@@ -19,15 +18,15 @@ class Products extends React.Component {
         this.state = {
             products: [],
             filteredData: [],
+
+            gender: [],
+
+            filteredProducts: this.products,
+
             activeBrand: 'all',
             isLoading: true,
             productsPerPage: 7,
             currentPage: 1,
-
-            newProducts: [],
-
-            isChecked: false,
-
             populateFormsData: '',
             updateFilters: [],
             sort: 'newest',
@@ -48,19 +47,19 @@ class Products extends React.Component {
                 let products = res.data.data.data;
                 this.setState({
                     products,
+                    filteredProducts: products,
                     isLoading: false
                 })   
             })
             .catch(function (error) {
                 console.log(error);
         })
-        console.log(this.state.sizes)
     }
 
-    componentWillMount  = () => {
+    componentWillMount () {
         this.selectedCheckboxes = new Set();
+        this.selectedGender = '';
     }
-
 
     paginate = (pageNumber) => {
         this.setState({
@@ -90,44 +89,68 @@ class Products extends React.Component {
 
     createCheckboxes = () => available_sizes.map(this.createCheckbox);
 
-    handleFormSubmit = event => {
-       event.preventDefault();
+    handleGenders = (gender) => {
+        this.selectedGender = gender;
+        console.log(gender)
+        console.log(this.selectedGender)
 
-       //const selectedSizes = [...this.selectedCheckboxes];
-
-       const selectedSizes = []
-
-       for (const checkbox of this.selectedCheckboxes) {
-            selectedSizes.push(checkbox)
-        }
-
-        const filteredProducts = this.state.products.filter(product =>
-            selectedSizes.every(size =>
-              product.stock.some(s => 
-                s.stock > 0 && s.size === size
-                )
-            )
-        );
+        const filteredGender = this.state.filteredProducts.filter((product) => {
+            return product.gender.some((item, idx, arr) => {
+              return item[this.selectedGender] === false ? null : product 
+            })
+        });
 
         this.setState({
-            products: filteredProducts
+            products: filteredGender
+        })
+    }
+
+    sortByPrice = (price) => {
+        let sortedPrice = this.state.products.sort((a,b) => {
+            return price === 'min' ? a.price - b.price : b.price - a.price
         })
 
-        console.log(filteredProducts)
-        console.log(selectedSizes)
-    } 
+        this.setState({
+            sortBy: sortedPrice 
+        })
+    }
 
-       //    const val = values.map((value) => value)
+    handleFormSubmit = event => {
+        //4) this button updates the filters on the sizes, which I think I need to fix to update the brands, the price and the gender
+        event.preventDefault();
+        //5) right here I am storing the selected checkboxes whic is what I was doing before by pushing the checkboxes
+        const selectedSizes = [...this.selectedCheckboxes];
+        console.log("selected Sizes: " + selectedSizes);
+    
 
-    //     //    if (val) {
-    //     //        this.state.products.filter((product) => {
-    //     //            return product.stock.filter((item) => {
-    //     //                return item.stock > 0 && console.log([item.size].includes(val)) ? product : this.state.products
-    //     //            })
-    //     //        })
-    //     //    } 
-    //  }
-      
+        //6) on her I am filtering the array based on the size
+        const filteredProducts = this.state.filteredProducts.filter(product =>
+          selectedSizes.every(size =>
+            product.stock.some(s => s.stock > 0 && s.size === size)
+          ) 
+        );
+
+        //6 A) filtered Gender
+
+        // const filteredGender = this.state.filteredProducts.filter((product) => {
+        //     return product.gender.some((item, idx, arr) => {
+        //       console.log(item[this.selectedGender])
+        //       return item[this.selectedGender] === false ? null : product 
+        //     })
+        // });
+
+        //7) I think this is totally wrong but I am updating products witht the filteredproducts
+        this.setState({
+           products: filteredProducts,
+           //gender: filteredGender
+        });
+    
+        //console.log("filteredProducts: ", filteredProducts);
+        //console.log(selectedSizes);
+        //console.log(this.state.gender);
+        //console.log(this.state.filteredProducts);
+    };
+
 
     filterBrand = (category) => {
         this.setState({
@@ -330,12 +353,25 @@ class Products extends React.Component {
     // }
  
     render() {
-    const { products, currentPage, productsPerPage, activeBrand, isLoading } = this.state;
+    const {
+        filteredProducts,
+        products,
+        currentPage,
+        productsPerPage,
+        activeBrand,
+        isLoading
+    } = this.state;
     const totalProducts = products.length;
     const indexOfLastProduct = currentPage * productsPerPage;
     const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
-    const currentProducts = products.slice(indexOfFirstProduct, indexOfLastProduct);
+    const currentProducts = products.slice(
+      indexOfFirstProduct,
+      indexOfLastProduct
+    );
     const { location } = this.props;
+    //console.log(this.state.products)
+    //console.log(this.state.gender)
+    console.log(this.state.gender)
     return (
         <div className="content-area products-all-page">
             <div className="filter-section">
@@ -344,8 +380,8 @@ class Products extends React.Component {
                 <label className="title" htmlFor="gender-options">Gender</label>
                 <div className="content">
                     <div className="gender">
-                        <option className="option">Men</option>
-                        <option className="option">Women</option>
+                        <option value="male" onClick={(e) => this.handleGenders(e.target.value)} className="option">Men</option>
+                        <option value="female" onClick={(e) => this.handleGenders(e.target.value)} className="option">Women</option>
                     </div>
                 </div>
                 </div>
@@ -367,8 +403,14 @@ class Products extends React.Component {
                 <label className="title" htmlFor="price-options">Price</label>
                 <div className="content">
                     <div className="price">
-                        <input type="text" name="min" placeholder="min" className="option" ></input>
-                        <input type="text" name="max" placeholder="max" className="option" ></input>
+                        <option 
+                            onClick={(e) => this.sortByPrice(e.target.value)} 
+                            value="min" name="min" placeholder="min" className="option" >min
+                        </option>
+                        <option 
+                            onClick={(e) => this.sortByPrice(e.target.value)} 
+                            value="max" name="max" placeholder="max" className="option" >max
+                        </option>
                     </div>
                 </div>
                 </div>
@@ -392,7 +434,7 @@ class Products extends React.Component {
             let brand = [item.brand];
             if (brand.indexOf(activeBrand) < 0 && activeBrand !== 'all') return null;
             return (
-                <div className="product-wrap" key={title}>
+                <div className="product-wrap" key={uuid()}>
                     <Link  
                         to={{
                             pathname: `${location.pathname}/${item.title}`,
@@ -423,20 +465,5 @@ class Products extends React.Component {
   }
 };
 
-const mapStateToProps = state => ({
-    filters: state.filters.items
-});
 
-export default connect(
-    mapStateToProps,
-    { updateFilters }
-)(Products);
-
-/*
-name="brand" 
- value={brand} 
-
-<option name="brand" type="checkbox" onClick={this.handleChange} value={brand} className="option">
-    {brand}
-</option>	
-*/
+export default Products;
