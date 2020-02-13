@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700|Rozha+One&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap');
+
+$textFont: 'Roboto Condensed', sans-serif;
+
+$headerFont: 'Roboto', sans-serif;
+
+$displayFont: 'Open Sans Condensed', sans-serif;
+
+$regulaSans: 'Open Sans', sans-serif;
+
+$rozhaFont: 'Rozha One', serif;
+
+@font-face {
+  font-family: road_rage;
+  src: url('/fonts/Road_Rage.otf');
+}
+
+// Grid System
+$grid-columns: 12;
+
+$grid-max-width: 1200px; //breakpoint-small
+
+$breakpoint-xs: 'only screen and (min-width: 0px)';
+
+$breakpoint-small: 'only screen and (min-width: 451px)';
+
+$breakpoint-medium: 'only screen and (min-width: 768px)';
+
+$breakpoint-large: 'only screen and (min-width: 1008px)';
+
+$breakpoint-xl: 'only screen and (min-width: 1300px)';
+
+$titleColor: #aaaaaa;
+
+$paragraphColor: #adadad;
+
+$footerBG: #131a22;
+
+$black: #202020;
+
+$red: #911a20;
+
+$green: #4d6010;
+
+$greyBG: #f7f7f7;

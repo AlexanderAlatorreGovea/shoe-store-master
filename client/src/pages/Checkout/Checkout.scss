@@ -1,0 +1,83 @@
+
+.content-area.checkout-page{
+    padding: 116px 0;
+    h1{
+      font-size: 3rem;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    p{
+      max-width: 700px; 
+      margin: 0 auto;
+      line-height: 1.5;
+      font-size: 1.2rem;
+      font-weight: 300;
+    }
+    .box-container{
+      @media screen and (max-width: 768px) {
+        padding: 80px 10px;
+      }
+    }
+    .container {
+      @media screen and (max-width: 768px) {
+        width: 100%;
+        padding: 0;
+      }
+    }
+    .checkout-grid{
+      display: grid;
+      grid-template-columns: 70% 1fr;
+      grid-gap: 20px; 
+      @media screen and (max-width: 768px) {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+    .forms{
+      @media screen and (max-width: 768px) {
+        margin: 0;
+      }
+      h3{
+        font-size: 1.7rem;
+        margin: 1.5rem 0;
+        @media screen and (max-width: 768px) {
+          text-align: center;
+          font-size: 1.3rem;
+        }
+      }
+      form{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 20px;
+        font-weight: 500;
+      }
+      label{
+        display: block;
+        margin-bottom: 1rem;
+      }
+    }
+    .pricing {
+      @media screen and (max-width: 768px) {
+        margin: 0 !important;
+      }
+    }
+    .totals{
+      margin: 1.5rem auto;
+      @media screen and (max-width: 768px) {
+        margin: 0;
+      }
+      .items,.tax,.shipping,.price, .sub-total{
+        margin: 0 0 1.3rem;
+        text-transform: capitalize;
+        font-weight: 300;
+        font-size: 1.25rem;
+        letter-spacing: 1.18px;
+        @media screen and (max-width: 768px) {
+          font-size: 1rem;
+        }
+        span{
+          font-weight: 700;
+        }
+      }
+    }
+  }

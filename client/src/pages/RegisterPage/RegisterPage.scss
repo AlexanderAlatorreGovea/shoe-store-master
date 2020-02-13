@@ -1,0 +1,71 @@
+.login_register-page {
+    form {
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+        width: 64%;
+        @media screen and (max-width: 768px) {
+            width: 90%;
+            height: 100%;
+        }
+        @media screen and (max-width: 425px) {
+            width: 94%;
+        }
+        #register-button {
+            box-shadow: none;
+            margin: 0 0 1rem;
+            font-weight: 100;
+            font-size: 1rem;
+            padding: 10px;
+            background-color: black;
+            color: white;
+            border: 2px solid black !important;
+            cursor: pointer;
+            font-size: 2px; 
+            font-size: 13px;
+            margin-top: 32px;
+            margin-bottom: 32px;
+            width: 50%;
+            transition: all 0.3s ease-in-out;
+            &:hover {
+                background: white;
+                color: black;
+            }
+        }
+        .footer {
+            display: flex;
+            flex-direction: column;
+            line-height: 2;
+        }
+        input { 
+            display: flex;
+            flex-direction: column;
+            height: 40px;
+            border: none !important;
+            border-bottom: 1px solid #aaa !important;
+            font-size: 14px !important;
+            &:focus {
+                outline: none;
+                -webkit-box-shadow: none;
+                box-shadow: none;
+            }
+            &:-internal-autofill-selected {
+                background: white;
+            }
+            &::-webkit-autofill {
+                background: white;
+            }
+            &::placeholder {
+                color: black;
+            }
+            &[name],
+            &[password],
+            &[passwordConfirm] {
+                font-size: 1rem;
+                padding: 10px;
+                border: 1px solid #6c6c6c;
+                border-radius: 4px;
+            }
+        }
+    }
+}

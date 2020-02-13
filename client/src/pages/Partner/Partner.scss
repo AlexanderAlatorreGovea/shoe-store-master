@@ -1,0 +1,173 @@
+.partner {
+    background: white;
+    .first-container {
+        padding: 100px;
+        margin: 0 auto;
+        display: flex;
+        padding-top: 180px;
+        margin-bottom: 100px;
+        h1 {
+            color: #102a43;
+            font-size: 39px;
+            line-height: 1.5;
+            font-weight: 900;
+            padding-bottom: 37px;
+        }
+        h2 {
+            font-size: 16px;
+            line-height: 2;
+            color: #334e68;
+            padding-bottom: 31px;
+        }
+        .button {
+            background-color: #5457ff;
+            width: 154px;
+            padding: 13px 20px;
+            color: white;
+            border-radius: 4px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 15px;
+            &:hover {
+                background-color: rgb(77, 79, 231);
+                cursor: pointer;
+            }
+            a {
+                text-decoration: none;
+                color: white;
+            }
+        }
+        .sub-container {
+            align-self: center;
+            width: 500px;
+            padding: 10px;
+        }
+        .image {
+            width: 650px;
+            height: 450px;
+            background-size: cover;
+        }
+    }
+    .second-container {
+        width: 900px;
+        margin: 0 auto;
+        h3 {
+            color: #963484;
+            line-height: 2;
+            font-size: 14px; 
+            text-align: center;
+        }
+        h1 {
+            color: #102a43;
+            font-size: 30px;
+            line-height: 1.5;
+            font-weight: 900;
+            padding-bottom: 100px;
+            text-align: center;
+        }
+        .sub-containers {
+            display: flex;
+            line-height: 2;
+            justify-content: space-between;
+            height: 508px;
+            color: white;
+            font-weight: 200;
+            .sub-container {
+                width: 30%;
+                padding: 16px;
+                border-radius: 8px 8px 8px 8px;
+                height: 482px;
+                .sub-container-info {
+                    h2 {
+                        font-size: 19px;
+                        padding-bottom: 28px;
+                        font-weight: 500;
+                    }
+                    span {
+                        font-size: 14px;
+                        padding-bottom: 34px;
+                    }
+                    div {
+                        padding-top: 20px;
+                        i {
+                            font-size: 20px;
+                            padding-right: 10px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .third-container {
+        width: 600px;
+        margin: 0 auto;
+        padding-top: 100px;
+        padding-bottom: 40px;
+        h3 {
+            color: #963484;
+            line-height: 2;
+            font-size: 14px;
+            text-align: center;
+        }
+        h1 {
+            color: #102a43;
+            font-size: 30px;
+            line-height: 1.5;
+            font-weight: 900;
+            padding-bottom: 100px;
+            text-align: center;
+        }
+    }
+    .fourth-container {
+        display: flex;
+        width: 960px;
+        margin: 0 auto;
+        padding-bottom: 100px;
+        .fourth-box {
+            width: 30%;
+            padding: 10px;
+            h2 {
+                line-height: 2;
+                font-size: 18px;
+                font-weight: 700;
+                color: #102a43;
+                text-align: center;
+            }
+            p {
+                line-height: 1.5;
+                font-size: 14px;
+                font-weight: 400;
+                color: #627d98;
+                text-align: center;
+            }
+        }
+    }
+    .fifth-container {
+        width: 720px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        .fifth-box {
+            padding: 15px;
+            box-shadow: 0px 1px 3px 0px rgba(23,25,51,0.04), 0px 3px 6px 0px rgba(23,25,51,0.08);
+            margin-bottom: 50px;
+            display: flex;
+            border-radius: 4px;
+            justify-content: space-between;
+            .link {
+                font-weight: 700;
+                color: #102a43; 
+                align-self: center;
+            }
+            .button {
+                background-color: #555efb;
+                padding: 10px;
+                border-radius: 4px;
+                color: white;
+                font-size: 14px;
+                text-decoration: none;
+                box-shadow: 0 2px 4px 0 rgba(100, 105, 124, 0.24);
+            } 
+        }
+    }
+}

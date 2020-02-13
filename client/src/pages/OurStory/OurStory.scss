@@ -1,0 +1,172 @@
+.our-story {
+    padding-top: 150px;
+    background: white;
+    .first-container {
+        height: 38vh;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+        padding-bottom: 100px;
+        box-shadow: 0 2rem 5rem -2.5rem rgba(0, 0, 0, 0.4), 0 0.3rem 0.5rem -0.4rem rgba(0, 0, 0, 0.6);
+        margin-bottom: 150px;
+        .hero-text {
+            text-align: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 30px;
+            font-weight: 100;
+            letter-spacing: 10px;
+            line-height: 2.2;
+            @media screen and (max-width: 425px) {
+                font-size: 21px !important;
+            }
+        }
+    }
+    .second-container {
+        width: 90%;
+        padding: 70px;
+        margin: 0 auto; 
+        border: 2px solid #e1e1e1;
+        @media screen and (max-width: 768px) {
+            padding: 0px;
+        }
+        .inner-container {
+            background-color: #f7f8fa;
+            box-shadow: 0 2rem 5rem -2.5rem rgba(0,0,0,.4), 0 0.3rem 0.5rem -0.4rem rgba(0,0,0,.6);
+            .second-subcontainer {
+                display: flex; 
+                flex-direction: row;
+                @media screen and (max-width: 1024px) {
+                    display: flex;
+                    flex-direction: column;
+                }
+                
+                #one {
+                    @media screen and (max-width: 1024px) {
+                        order: 1;
+                    }
+                }
+                #negative {
+                    @media screen and (max-width: 1024px) {
+                        order: -1;
+                    }
+                }
+                .image {
+                    height: 529px;
+                    width: 50%;
+                    background-size: cover;
+                    @media screen and (max-width: 1024px) {
+                        width: 100%;
+                    }
+                    @media screen and (max-width: 425px) {
+                        height: 252px;
+                        background-size: contain;
+                    }
+                    @media screen and (max-width: 375px) {
+                        height: 222px;
+                        background-size: contain;
+                    }
+                    @media screen and (max-width: 375px) {
+                        height: 189px;
+                        background-size: contain;
+                    }
+
+                } 
+                .description {
+                    color: #929292;
+                    width: 50%;
+                    padding: 0 30px;
+                    letter-spacing: 1.2px;
+                    place-self: center;
+                    display: flex;
+                    flex-direction: column;
+                    @media screen and (max-width: 1024px) {
+                        width: 100%;
+                        padding-top: 30px;
+                        padding-bottom: 50px;
+                    }
+                    @media screen and (max-width: 768px) {
+                        padding-top: 30px;
+                        padding-bottom: 50px;
+                    }
+                    
+                    h1 {
+                        text-align: center;
+                        font-size: 30px;
+                        color: #484c4f;
+                        letter-spacing: 10.2px;
+                        padding-bottom: 10px;
+                        @media screen and (max-width: 425px) {
+                            padding-top: 20px;
+                            padding-bottom: 20px;
+                        }
+                        @media screen and (max-width: 320px) {
+                            font-size: 24px;
+                        }
+                    }
+                    span {
+                        background: #000;
+                        height: 4px;
+                        width: 80px;
+                        margin: 0 auto;
+                        margin-bottom: 30px;
+                    }
+                    p {
+                        font-size: 13px;
+                        line-height: 2;
+                        text-align: center;
+                    }
+                }
+            }
+        }
+    }
+    .third-container {
+        margin-top: 150px;
+        margin-bottom: 150px;
+        text-align: center;
+        width: 100%;
+        font-size: 20px;
+        letter-spacing: 5px;
+        background-color: #f7f8fa;
+        font-weight: 200;
+        color: #929292;
+        letter-spacing: 10px;
+    }
+    .fourth-container {
+        height: 45vh;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+        box-shadow: 0 2rem 5rem -2.5rem rgba(0, 0, 0, 0.4),
+        0 0.3rem 0.5rem -0.4rem rgba(0, 0, 0, 0.6);
+        margin-bottom: 150px;
+        .hero-text {
+            text-align: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 30px;
+            font-weight: 100;
+            letter-spacing: 10px;
+            line-height: 2.2;
+            @media screen and (max-width: 425px) {
+                font-size: 21px !important;
+            }
+            @media screen and (max-width: 320px) {
+                font-size: 17px !important;
+            }
+
+        }
+    }
+    .fifth-container {
+        height: 52px;
+        background: white;
+    }
+}
